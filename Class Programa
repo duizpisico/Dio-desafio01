@@ -1,0 +1,58 @@
+import java.util.*;
+
+public class Programa {
+
+	public static void main(String[] args) {
+       ArrayList<Filme> menu = new ArrayList<Filme>();
+       Scanner teclado = new Scanner(System.in);
+       int fx=-1;
+       int registro = 0;
+       int numero = 0;
+       while (fx!=0) {
+    	   System.out.println("Cadastro 1.0");
+    	   System.out.println("1- Insira um filme");
+    	   System.out.println("2- Catálogo");;
+    	   System.out.println("3- Deletar Filme");
+    	   System.out.println("4- quantidade de filme");
+    	   System.out.println("0- sair");
+    	   System.out.println("Opção: ");
+    	   fx = teclado.nextInt();
+    	   if (fx==1) {
+             registro++;
+             teclado.nextLine();
+             System.out.print("Filme: ");
+             String filme = teclado.nextLine();
+             System.out.print("Categoria: ");
+             String categoria = teclado.nextLine();
+             System.out.print("Tempo: ");
+             String tempo = teclado.nextLine();
+             Filme cadastro = new Filme(registro,filme,categoria,tempo);
+             menu.add(cadastro);
+             System.out.println("Filme adicionado!! ");
+             
+             
+	}      else if (fx==2) {
+		   System.out.println("-----------------");
+		   for (Filme filme : menu) {
+			   System.out.println("ID: " + filme.getId());
+			   System.out.println("Filme: " + filme.getFilme());
+			   System.out.println("Categoria: " + filme.getCategoria());
+			   System.out.println("Tempo: " + filme.getDuracao());
+		   }
+	}      else if (fx==3) {
+		         System.out.println("Informe o INDEX de 0-N: ");
+		         numero = teclado.nextInt();
+		         menu.remove(numero);
+		         registro--;
+		         System.out.println("Filme removido do menu: ");	       
+	}      else if (fx==4) {
+		System.out.println("Quantidade" + registro);
+	}      else if(fx==0) {
+    	   
+} else {
+    System.out.println("Opção inválida, tente novamente");
+}    	   
+}
+       System.out.println("Fim do programa!");
+}
+}
